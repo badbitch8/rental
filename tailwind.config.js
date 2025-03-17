@@ -7,8 +7,11 @@ export default {
   darkMode: 'class',
 
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        brown: '#8B4513', // Adding a custom brown color
+      },
+    },
   },
   plugins: [],
 }
-

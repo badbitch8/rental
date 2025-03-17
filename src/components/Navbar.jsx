@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.jpg"; // Import the logo
 import { User } from "lucide-react";
@@ -14,8 +14,8 @@ const Navbar = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-<nav className="bg-white dark:bg-gray-800 sticky top-0 z-20 w-full shadow-md flex justify-between items-center h-16 px-0 lg:px-0 m-0 p-0">
-{/* Logo */}
+    <nav className="bg-white dark:bg-gray-800 sticky top-0 z-20 w-full shadow-md flex justify-between items-center h-16 px-0 lg:px-0 m-0 p-0">
+      {/* Logo */}
       <img className="w-24 h-full ml-[-10px]" src={logo} alt="Logo" />
 
       {/* Mobile Menu Button */}
@@ -81,12 +81,12 @@ const Navbar = () => {
             POST PROPERTY
           </button>
         </Link>
-        <button className="bg-gray-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">
-          Sign Up
-        </button>
-        <button className="bg-gray-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">
-          Login
-        </button>
+      
+        <Link to="/new_login">
+          <button className="bg-gray-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">
+            Login
+          </button>
+        </Link>
 
         {/* Profile Dropdown */}
         <div

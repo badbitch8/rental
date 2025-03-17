@@ -10,7 +10,7 @@ import Contact from "./pages/Contact";
 import More from "./pages/More";
 import Settings from "./pages/Settings";
 import SavedListings from "./pages/SavedListings";
-import PostProperty from "./pages/PostProperty";
+import PostProperty from "./pages/Postproperty"; // Correct casing
 
 function App() {
   return (
@@ -20,6 +20,16 @@ function App() {
         <div className="pt-16">
           <Routes>
             <Route path="/postproperty" element={<PostProperty />} />
+            <Route path="/new_login" element={<iframe
+              src="/new_login.html"
+              title="New Login"
+              width="100%"
+              height="800px" // Adjust height as needed
+            />} /> {/* Correctly rendering new_login.html */}
+
+
+
+
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/rentals" element={<Rentals />} />

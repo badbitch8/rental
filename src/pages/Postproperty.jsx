@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 
 function PostProperty() {
@@ -32,7 +32,7 @@ function PostProperty() {
   };
 
   return (
-    <div className="max-w-lg mx-auto bg-white shadow-lg p-6 rounded-lg mt-10">
+    <div className="max-w-lg mx-auto bg-gray-500 shadow-lg p-6 rounded-lg mt-10"> {/* Changed background to grey */}
       <h2 className="text-xl font-bold mb-4 text-center">Add a Property</h2>
       {message && <p className="text-center text-green-600">{message}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/lucide@latest/dist/lucide.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #503f3f;
+            background-size: cover;
+            background-position: center;
+
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 300px;
+            padding: 20px;
+            background: rgba(211, 211, 211, 0.9); /* Less transparent grey background */
+
+            border-radius: 10px; /* Smooth edges */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* 3D effect */
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group input {
+            width: calc(100% - 20px); /* Adjust width to fit in the container */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box; /* Ensure padding is included in width */
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #4cae4c;
+        }
+        .links {
+            margin-top: 10px;
+        }
+        .links a {
+            display: block;
+            margin: 5px 0;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        .close {
+            cursor: pointer;
+            color: red;
+            font-size: 20px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            display: none; /* Initially hidden */
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="container">
+        <div id="loginContainer">
+            <h2>Login</h2>
+            <form id="loginForm" onsubmit="event.preventDefault(); window.location.href='index.html';">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <div class="links"> 
+                <a href="#" id="forgotPasswordLink">Forgot Password?</a>
+                <a href="#" id="signUpLink">Don't have an account? Sign Up</a>
+            </div>
+        </div>
+        <div id="forgotPasswordContainer" style="display: none;">
+            <span class="close" onclick="closeForgotPassword()">X</span> <!-- Close button for forgot password -->
+            <h2>Forgot Password</h2>
+            <form id="forgotPasswordForm" onsubmit="event.preventDefault(); alert('Password reset link sent!');">
+                <div class="form-group">
+                    <label for="forgotEmail">Email</label>
+                    <input type="email" id="forgotEmail" required>
+                </div>
+                <button type="submit" class="btn">Send Reset Link</button>
+            </form>
+        </div>
+        <div id="signUpContainer" style="display: none;">
+            <span class="close" onclick="closeSignUp()">X</span> <!-- Close button for sign-up -->
+            <h2>Sign Up</h2>
+            <form id="signUpForm">
+                <div class="form-group">
+                    <label for="signUpEmail">Email</label>
+                    <input type="email" id="signUpEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="tel" id="phoneNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="signUpPassword">Password</label>
+                    <input type="password" id="signUpPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+                <button type="submit" class="btn">Submit</button>
+                <a href="#" id="loginLink">Already have an account? Login</a>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('signUpLink').addEventListener('click', function() {
+            document.getElementById('loginContainer').style.display = 'none';
+            document.getElementById('signUpContainer').style.display = 'block';
+            document.querySelectorAll('.close').forEach(btn => btn.style.display = 'block'); // Show close button for sign-up
+        });
+
+        document.getElementById('loginLink').addEventListener('click', function() {
+            document.getElementById('signUpContainer').style.display = 'none';
+            document.getElementById('loginContainer').style.display = 'block';
+            document.querySelectorAll('.close').forEach(btn => btn.style.display = 'none'); // Hide close button
+        });
+
+        document.getElementById('forgotPasswordLink').addEventListener('click', function() {
+            document.getElementById('loginContainer').style.display = 'none';
+            document.getElementById('forgotPasswordContainer').style.display = 'block';
+            document.querySelectorAll('.close').forEach(btn => btn.style.display = 'block'); // Show close button for forgot password
+        });
+
+        function closeForgotPassword() {
+            document.getElementById('forgotPasswordContainer').style.display = 'none';
+            document.getElementById('loginContainer').style.display = 'block';
+            document.querySelectorAll('.close').forEach(btn => btn.style.display = 'none'); // Hide close button
+        }
+
+        function closeSignUp() {
+            document.getElementById('signUpContainer').style.display = 'none';
+            document.getElementById('loginContainer').style.display = 'block';
+            document.querySelectorAll('.close').forEach(btn => btn.style.display = 'none'); // Hide close button
+        }
+    </script>
+</body>
+</html>
+</create_file>
